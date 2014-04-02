@@ -135,3 +135,6 @@ ro.fm.transmitter=false
 
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
+
+#additional max allowed background services on bootup
+persist.added_boot_bgservices=4
