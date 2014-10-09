@@ -159,6 +159,8 @@ on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
+    mkdir /data/misc/camera 0770 camera camera
+
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
