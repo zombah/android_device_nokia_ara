@@ -42,6 +42,7 @@ on fs
     swapon_all fstab.qcom
 
     restorecon_recursive /persist
+    mkdir /persist/data 0700 system system
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
