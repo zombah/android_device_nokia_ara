@@ -50,7 +50,7 @@ vidc.debug.level=1
 ro.config.low_ram=false
 ro.ksm.default=0
 config.disable_atlas=true
-persist.added_boot_bgservices=4
+ro.config.max_starting_bg=4
 
 # Qualcomm
 ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
