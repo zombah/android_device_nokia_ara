@@ -158,6 +158,9 @@ BOARD_SEPOLICY_UNION += \
     thermal-engine.te \
     wcnss_service.te
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
