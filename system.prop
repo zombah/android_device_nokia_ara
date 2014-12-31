@@ -53,7 +53,6 @@ vidc.debug.level=1
 
 # Memory
 ro.config.low_ram=false
-ro.ksm.default=0
 config.disable_atlas=true
 ro.config.max_starting_bg=4
 
