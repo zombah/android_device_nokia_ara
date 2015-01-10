@@ -97,11 +97,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libdashplayer \
     libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
