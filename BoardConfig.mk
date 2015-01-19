@@ -175,3 +175,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Use build_number tag for ota file
 BUILD_NUMBER				:= $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)
+
+#Disable memcpy_base.S optimization
+TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
