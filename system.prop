@@ -1,5 +1,5 @@
 #
-# system.prop for msm8610
+# system.prop for Nokia Ara
 #
 
 # Use reference RIL for initial bringup
@@ -20,12 +20,16 @@ DEVICE_PROVISIONED=1
 persist.radio.msgtunnel.start=false
 persist.radio.atfwd.start=false
 # Start in cdma mode
-ro.telephony.default_network=5
+ro.telephony.default_network=0,1
+ro.radio.rat.types=gsm,umts
 
 #
 # system props for the cne module
 #
-persist.cne.feature=1
+persist.cne.feature=6
+# WWAN trigger for NSRM disabled to get
+# more aggressive power saving gains
+persist.cne.nsrm.bkg.evt=16382
 
 # Skip /sys/power/wait_for_fb_* nodes and
 # force FB to be always on
@@ -37,6 +41,12 @@ dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 
 ro.hdmi.enable=true
+tunnel.decode=false
+#8x10 does not support tunnel av playback
+#this prop should be set to false all the time
+tunnel.audiovideo.decode=false
+lpa.decode=true
+lpa.use-stagefright=true
 
 #system props for the MM modules
 
@@ -78,7 +88,7 @@ ro.opengles.version=196608
 #
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
-telephony.lteOnCdmaDevice=1
+telephony.lteOnCdmaDevice=0
 
 # simulate sdcard on /data/media
 #
@@ -98,7 +108,7 @@ persist.audio.fluence.speaker=true
 ro.sys.fw.bg_apps_limit=20
 
 # System property for cabl
-ro.qualcomm.cabl=1
+ro.qualcomm.cabl=0
 
 
 # system prop for NFC DT
@@ -138,3 +148,43 @@ audio.offload.gapless.enabled=true
 
 #additional max allowed background services on bootup
 persist.added_boot_bgservices=4
+
+#Audio Resourcemanager exceptions
+#by enabling following flag to true we support pcm camcorder recording
+rm.audio.exceptions = false
+
+#Default tones
+##ro.config.alarm_alert=Default_Clock.ogg
+##ro.config.notification_sound=Default_Notification.ogg
+##ro.config.ringtone=Nokia_Tune.ogg
+
+##ro.product.platform=Nokia X software platform 2.1
+
+#System property for enabling Fast Dormancy
+persist.env.fastdorm.enabled=true
+persist.fd.scroff.timer=3000
+persist.fd.scron.timer=10000
+
+#
+# ADDITIONAL_BUILD_PROPERTIES
+#
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=48m
+dalvik.vm.heapsize=128m
+dalvik.vm.heaptargetutilization=0.25
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=2m
+keyguard.no_require_sim=true
+ro.com.android.dataroaming=false
+ro.com.android.dateformat=MM-dd-yyyy
+ro.carrier=unknown
+ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+ro.adb.secure=1
+persist.sys.ssr.restart_level=modem
+persist.radio.apm_sim_not_pwdn=1
+net.bt.name=Android
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+ro.qc.sdk.izat.premium_enabled=0
+ro.qc.sdk.izat.service_mask=0x0
+persist.gps.qc_nlp_in_use=0
+ro.gps.agps_provider=1

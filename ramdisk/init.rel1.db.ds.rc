@@ -1,0 +1,17 @@
+# Copyright (c) 2014 Microsoft Mobile. All rights reserved.
+# This software, including documentation, is protected by copyright controlled by
+# Microsoft Mobile. All rights are reserved. Copying, including reproducing,
+# storing, adapting or translating, any or all of this material requires the prior
+# written consent of Microsoft Mobile. This material also contains confidential
+# information which may not be disclosed to others without the prior written
+# consent of Microsoft Mobile.
+
+on early-boot
+	setprop ro.product.usb.name "Nokia_X2 (RM-1013)"
+	setprop ro.product.usb.pid_rndis "0704"
+	setprop ro.product.usb.pid_rndis_adb "0705"
+	setprop ro.product.usb.pid_ptp "0706"
+	setprop ro.product.usb.pid_ptp_adb "0707"
+	setprop ro.product.usb.pid_mtp "0708"
+	setprop ro.product.usb.pid_mtp_adb "0709"
+	write /sys/class/android_usb/android0/iProduct "Nokia_X2 (RM-1013)"

@@ -1,108 +1,147 @@
-# config.mk
 #
-# Product-specific compile-time definitions.
+# Copyright (C) 2014 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 #
 
-ifeq ($(TARGET_ARCH),)
-TARGET_ARCH := arm
-endif
+# Platform
+TARGET_NO_BOOTLOADER := true
 
-BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := true
-
-TARGET_USES_AOSP := false
-# Compile with msm kernel
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_HAS_QC_KERNEL_SOURCE := true
-
--include $(QCPATH)/common/msm8610/BoardConfigVendor.mk
-
-#TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
-# to get rid of compilation error.
-TARGET_HAVE_HDMI_OUT := false
-TARGET_USES_OVERLAY := true
-TARGET_NO_BOOTLOADER := false
-TARGET_NO_KERNEL := false
-TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RPC := true
-
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_CPU_ABI  := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := krait
-TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-
-TARGET_HARDWARE_3D := false
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno302
 TARGET_BOARD_PLATFORM := msm8610
 TARGET_BOOTLOADER_BOARD_NAME := MSM8610
-TARGET_ARCH_LOWMEM := true
 
-BOARD_KERNEL_BASE        := 0x00000000
-BOARD_KERNEL_PAGESIZE    := 2048
-BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
-BOARD_RAMDISK_OFFSET     := 0x02000000
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a7
+TARGET_ARCH_VARIANT := armv7-a-neon
 
-# Enables Adreno RS driver
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
-# Shader cache config options
-# Maximum size of the  GLES Shaders that can be cached for reuse.
-# Increase the size if shaders of size greater than 12KB are used.
-MAX_EGL_CACHE_KEY_SIZE := 12*1024
+TARGET_SPECIFIC_HEADER_PATH += device/nokia/ara/include
 
-# Maximum GLES shader cache size for each app to store the compiled shader
-# binaries. Decrease the size if RAM or Flash Storage size is a limitation
-# of the device.
-MAX_EGL_CACHE_SIZE := 2048*1024
-
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
-
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37
+# Inline kernel building
 BOARD_KERNEL_SEPARATED_DT := true
+BOARD_CUSTOM_BOOTIMG_MK := device/nokia/ara/mkbootimg.mk
+TARGET_KERNEL_SOURCE := kernel/nokia/msm8610
+TARGET_KERNEL_CONFIG := msm8610-nokia_debug_defconfig
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 no_console_suspend=1 ignore_loglevel earlyprintk initcall_debug
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 
-BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
+WLAN_MODULES:
+	mkdir -p $(KERNEL_MODULES_OUT)/pronto
+	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
+	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A00000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838860800
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
-BOARD_CACHEIMAGE_PARTITION_SIZE := 33554432
-BOARD_PERSISTIMAGE_PARTITION_SIZE := 5242880
-BOARD_TOMBSTONESIMAGE_PARTITION_SIZE := 73400320
-BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+TARGET_KERNEL_MODULES += WLAN_MODULES
 
-# Enable suspend during charger mode
+# Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
+AUDIO_FEATURE_DISABLED_SSR := true
+AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
+
+# Bionic
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/nokia/ara/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+
+# Build
+TARGET_SYSTEMIMAGE_USE_SQUISHER := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# Add NON-HLOS files for ota upgrade
-ADD_RADIO_FILES ?= true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-TARGET_USES_INTERACTION_BOOST := false
+# Dalvik
+TARGET_ARCH_LOWMEM := true
 
-# Added to indicate that protobuf-c is supported in this build
-PROTOBUF_SUPPORTED := true
+# Graphics
+TARGET_QCOM_DISPLAY_VARIANT := caf-new
+BOARD_EGL_CFG := device/nokia/ara/prebuilt/system/lib/egl/egl.cfg
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
 
-HAVE_FT_FW_UPGRADE := true
+# Hardware tunables framework
+BOARD_HARDWARE_CLASS := device/nokia/ara/cmhw/
 
-# Resource manager for audio-video usecases
-BOARD_USES_RESOURCE_MANAGER:= true
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
-TARGET_INIT_VENDOR_LIB := libinit_msm
+# Media
+TARGET_QCOM_MEDIA_VARIANT := caf-new
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
-# Board specific SELinux policy variable definitions
-BOARD_SEPOLICY_DIRS := \
-       device/qcom/common/sepolicy
+# Partition sizes
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A00000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 805306368
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824
+BOARD_FLASH_BLOCK_SIZE := 131072
 
-BOARD_SEPOLICY_UNION := \
-       netd.te
+# Power
+TARGET_POWERHAL_VARIANT := qcom
 
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+# QCOM BSP
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
-PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
-TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
+# Recovery
+TARGET_RECOVERY_FSTAB := device/nokia/ara/ramdisk/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/nokia/ara/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file.te \
+    netd.te \
+    ueventd.te
+
+# Wifi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HAS_QCOM_WLAN_SDK := true
+TARGET_USES_WCNSS_CTRL := true
+TARGET_PROVIDES_WCNSS_QMI := true
+TARGET_USES_QCOM_WCNSS_QMI := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan"
+BOARD_WLAN_DEVICE := qcwcn
