@@ -120,9 +120,9 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
 
-#PRODUCT_COPY_FILES += \
-#    kernel/nokia/msm8610/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-#    kernel/nokia/msm8610/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+PRODUCT_COPY_FILES += \
+    kernel/nokia/msm8610/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/nokia/msm8610/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
