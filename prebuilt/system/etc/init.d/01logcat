@@ -1,0 +1,2 @@
+#!/system/bin/sh
+logcat -f /cache/logcat.log -v threadtime
