@@ -201,7 +201,6 @@ vendor/lib/libchromatix_smiapp0c563a03_liveshot.so
 vendor/lib/libconfigdb.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libchromatix_smiapp0107a303_productiontest.so
-vendor/lib/libNimsWrap.so
 vendor/lib/libchromatix_imx135_preview.so
 vendor/lib/libchromatix_smia65pp010b8b02_preview.so
 vendor/lib/libacdbmapper.so

@@ -23,14 +23,6 @@ persist.radio.atfwd.start=false
 ro.telephony.default_network=0,1
 ro.radio.rat.types=gsm,umts
 
-#
-# system props for the cne module
-#
-persist.cne.feature=6
-# WWAN trigger for NSRM disabled to get
-# more aggressive power saving gains
-persist.cne.nsrm.bkg.evt=16382
-
 # Skip /sys/power/wait_for_fb_* nodes and
 # force FB to be always on
 debug.sf.fb_always_on=1
