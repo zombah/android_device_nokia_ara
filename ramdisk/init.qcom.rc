@@ -288,7 +288,7 @@ service qmuxd /system/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps qcom_diag
-    oneshot
+    disabled
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -455,6 +455,14 @@ service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
     group root
     oneshot
     disabled
+
+service ril-daemon1 /system/bin/rild -c 1
+    class main
+    socket rild1 stream 660 root radio
+    socket rild-debug1 stream 660 radio system
+    user root
+    disabled
+    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
 
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
