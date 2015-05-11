@@ -150,3 +150,7 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi
     oneshot
 
+service nokiabasebandinit /system/bin/sh /system/etc/init.nokia.baseband.sh
+    class late_start
+    user root
+    oneshot
