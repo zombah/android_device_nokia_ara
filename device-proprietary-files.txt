@@ -36,8 +36,6 @@ etc/firmware/a225_pm4.fw
 etc/firmware/a225p5_pm4.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/wlan/prima/WCNSS_cfg.dat
-etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 etc/firmware/leia_pm4_470.fw
 etc/izat.conf
