@@ -1,3 +1,11 @@
+#Audio
+etc/Bluetooth_cal.acdb
+etc/General_cal.acdb
+etc/Global_cal.acdb
+etc/Handset_cal.acdb
+etc/Hdmi_cal.acdb
+etc/Headset_cal.acdb
+etc/Speaker_cal.acdb
 lib/libqomx_core.so
 lib/libloc_api_v02.so
 lib/libloc_xtra.so
@@ -29,6 +37,8 @@ etc/firmware/a225p5_pm4.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/wlan/prima/WCNSS_cfg.dat
+etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 etc/firmware/leia_pm4_470.fw
 etc/izat.conf
 etc/quipc.conf
