@@ -5,5 +5,5 @@ PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
 if [ -f /firmware/verinfo/ver_info.txt ]; then
-    setprop gsm.version.baseband `head -1 /firmware/verinfo/ver_info.txt`
+    setprop gsm.version.baseband `head -1 /firmware/image/ver_info.txt`
 fi
