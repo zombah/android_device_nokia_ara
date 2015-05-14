@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+ifneq ($(filter ara,$(TARGET_DEVICE)),)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
+
+endif
