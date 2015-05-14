@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-
 // #define LOG_NDEBUG 0
 #define LOG_TAG "lights.msm8610"
+#define LOGE ALOGE
 
 #include <cutils/log.h>
 
@@ -25,230 +25,134 @@
 #include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <pthread.h>
 
 #include <sys/ioctl.h>
 #include <sys/types.h>
 
 #include <hardware/lights.h>
+#include <hardware/hardware.h>
 
-/******************************************************************************/
-
-static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
-static struct light_state_t g_notification;
-static struct light_state_t g_battery;
-static int g_buttons = 0;
 
-char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
-
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
-
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
-
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const LCD_FILE
-        = "/sys/class/leds/lcd-backlight/brightness";
-
-char const*const BUTTON_FILE
-        = "/sys/class/leds/button-backlight/brightness";
-
-/**
- * device methods
- */
-
-void init_globals(void)
+static int write_int(char const *path, int value)
 {
-    // init the mutex
-    pthread_mutex_init(&g_lock, NULL);
+	int fd;
+	static int already_warned = -1;
+	fd = open(path, O_RDWR);
+	if (fd >= 0) {
+		char buffer[20];
+		int bytes = sprintf(buffer, "%d\n", value);
+		int amt = write(fd, buffer, bytes);
+		close(fd);
+		return amt == -1 ? -errno : 0;
+	} else {
+		if (already_warned == -1) {
+			LOGE("write_int failed to open %s\n", path);
+			already_warned = 1;
+		}
+		return -errno;
+	}
 }
 
-static int
-write_int(char const* path, int value)
+static int rgb_to_brightness(struct light_state_t const *state)
 {
-    int fd;
-    static int already_warned = 0;
-
-    fd = open(path, O_RDWR);
-    if (fd >= 0) {
-        char buffer[20];
-        int bytes = sprintf(buffer, "%d\n", value);
-        int amt = write(fd, buffer, bytes);
-        close(fd);
-        return amt == -1 ? -errno : 0;
-    } else {
-        if (already_warned == 0) {
-            ALOGE("write_int failed to open %s\n", path);
-            already_warned = 1;
-        }
-        return -errno;
-    }
+	int color = state->color & 0x00ffffff;
+	return ((77 * ((color >> 16) & 0x00ff))
+		+ (150 * ((color >> 8) & 0x00ff)) +
+		(29 * (color & 0x00ff))) >> 8;
 }
 
-static int
-is_lit(struct light_state_t const* state)
+static int set_light_backlight(struct light_device_t *dev,
+			       struct light_state_t const *state)
 {
-    return state->color & 0x00ffffff;
-}
+	int err = 0;
+	int brightness = rgb_to_brightness(state);
+	//+++ power save
+	int range_num = 1;
+	int old_brightness_range_indexs[] = {160,255};
+	int new_brightness_range_indexs[] = {160,182};
+	int old_brightness = brightness;
+	int i=0;
+	int old_brightness_in_range = -1;// 0:1~10 , 1:10~102 , 2:102~255
+	for(i=0;i<range_num;i++){
+		int t_range_min = old_brightness_range_indexs[i];
+		int t_range_max = old_brightness_range_indexs[i+1];
+		if( brightness>=t_range_min && brightness<=t_range_max){
+			old_brightness_in_range = i;
+			break;
+		}
+	}
+	if(old_brightness_in_range>=0){
+		int old_br_min = old_brightness_range_indexs[old_brightness_in_range];
+		int olb_br_max = old_brightness_range_indexs[old_brightness_in_range+1];
+		int new_br_min = new_brightness_range_indexs[old_brightness_in_range];
+		int new_br_max = new_brightness_range_indexs[old_brightness_in_range+1];
+		int new_brightness = new_br_min +
+				(new_br_max-new_br_min)*(old_brightness-old_br_min)/(olb_br_max-old_br_min);
+		brightness = new_brightness;
+	}
+	//---
+	pthread_mutex_lock(&g_lock);
+	err = write_int("/sys/class/leds/lcd-backlight/brightness",
+			brightness);
+	pthread_mutex_unlock(&g_lock);
 
-static int
-rgb_to_brightness(struct light_state_t const* state)
-{
-    int color = state->color & 0x00ffffff;
-    return ((77*((color>>16)&0x00ff))
-            + (150*((color>>8)&0x00ff)) + (29*(color&0x00ff))) >> 8;
-}
-
-static int
-set_light_backlight(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-    int brightness = rgb_to_brightness(state);
-    pthread_mutex_lock(&g_lock);
-    err = write_int(LCD_FILE, brightness);
-    pthread_mutex_unlock(&g_lock);
-    return err;
-}
-
-static int
-set_speaker_light_locked(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int red, green;
-    int err = 0;
-
-    red = (state->color >> 16) & 0xFF;
-    green = (state->color >> 8) & 0xFF;
-
-    if (state->flashMode != LIGHT_FLASH_NONE) {
-        err = write_int(RED_BLINK_FILE, 1);
-        err = write_int(GREEN_BLINK_FILE, 1);
-    } else {
-        err = write_int(RED_BLINK_FILE, 0);
-        err = write_int(GREEN_BLINK_FILE, 0);
-    }
-
-    err = write_int(RED_LED_FILE, red);
-    err = write_int(GREEN_LED_FILE, green);
-
-    return 0;
-}
-
-static void
-handle_speaker_battery_locked(struct light_device_t* dev)
-{
-    if (is_lit(&g_notification)) {
-        set_speaker_light_locked(dev, &g_notification);
-    } else {
-        set_speaker_light_locked(dev, &g_battery);
-    }
-}
-
-static int
-set_light_notifications(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    pthread_mutex_lock(&g_lock);
-    g_notification = *state;
-    handle_speaker_battery_locked(dev);
-    pthread_mutex_unlock(&g_lock);
-    return 0;
-}
-
-static int
-set_light_battery(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    pthread_mutex_lock(&g_lock);
-    g_battery = *state;
-    handle_speaker_battery_locked(dev);
-    pthread_mutex_unlock(&g_lock);
-    return 0;
-}
-
-static int
-set_light_buttons(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-    int on = is_lit(state);
-    pthread_mutex_lock(&g_lock);
-    g_buttons = on;
-    err = write_int(BUTTON_FILE, on ? 255 : 0);
-    pthread_mutex_unlock(&g_lock);
-    return err;
+	return err;
 }
 
 /** Close the lights device */
-static int
-close_lights(struct light_device_t *dev)
+static int close_lights(struct light_device_t *dev)
 {
-    if (dev) {
-        free(dev);
-    }
-    return 0;
+	if (dev)
+		free(dev);
+	return 0;
 }
-
-
-/******************************************************************************/
-
-/**
- * module methods
- */
 
 /** Open a new instance of a lights device using name */
-static int open_lights(const struct hw_module_t* module, char const* name,
-        struct hw_device_t** device)
+static int open_lights(const struct hw_module_t *module, char const *name,
+		       struct hw_device_t **device)
 {
-    int (*set_light)(struct light_device_t* dev,
-            struct light_state_t const* state);
+	pthread_t lighting_poll_thread;
 
-    if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
-        set_light = set_light_backlight;
-    } else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
-        set_light = set_light_buttons;
-    } else if (0 == strcmp(LIGHT_ID_BATTERY, name)) {
-        set_light = set_light_battery;
-    } else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
-        set_light = set_light_notifications;
-    } else {
-        return -EINVAL;
-    }
+	int (*set_light) (struct light_device_t *dev,
+			  struct light_state_t const *state);
 
-    pthread_once(&g_init, init_globals);
+	if (0 == strcmp(LIGHT_ID_BACKLIGHT, name))
+		set_light = set_light_backlight;
+	else
+		return -EINVAL;
 
-    struct light_device_t *dev = malloc(sizeof(struct light_device_t));
-    memset(dev, 0, sizeof(*dev));
+	pthread_mutex_init(&g_lock, NULL);
 
-    dev->common.tag = HARDWARE_DEVICE_TAG;
-    dev->common.version = 0;
-    dev->common.module = (struct hw_module_t*)module;
-    dev->common.close = (int (*)(struct hw_device_t*))close_lights;
-    dev->set_light = set_light;
+	struct light_device_t *dev = malloc(sizeof(struct light_device_t));
+	memset(dev, 0, sizeof(*dev));
 
-    *device = (struct hw_device_t*)dev;
-    return 0;
+	dev->common.tag = HARDWARE_DEVICE_TAG;
+	dev->common.version = 0;
+	dev->common.module = (struct hw_module_t *)module;
+	dev->common.close = (int (*)(struct hw_device_t *))close_lights;
+	dev->set_light = set_light;
+
+	*device = (struct hw_device_t *)dev;
+
+	return 0;
 }
 
-static struct hw_module_methods_t lights_module_methods = {
-    .open =  open_lights,
+static struct hw_module_methods_t lights_methods =
+{
+	.open =  open_lights,
 };
 
 /*
- * The lights Module
+ * The backlight Module
  */
-struct hw_module_t HAL_MODULE_INFO_SYM = {
-    .tag = HARDWARE_MODULE_TAG,
-    .version_major = 1,
-    .version_minor = 0,
-    .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "ZTE lights module",
-    .author = "Konsta",
-    .methods = &lights_module_methods,
+struct hw_module_t HAL_MODULE_INFO_SYM =
+{
+	.tag = HARDWARE_MODULE_TAG,
+	.version_major = 1,
+	.version_minor = 0,
+	.id = LIGHTS_HARDWARE_MODULE_ID,
+	.name = "Nokia Ara lights module",
+	.author = "cm-nokia-x2",
+	.methods = &lights_methods,
 };
