@@ -76,6 +76,7 @@ persist.radio.apm_sim_not_pwdn=0
 ro.telephony.call_ring.multiple=false
 ro.use_data_netmgrd=true
 persist.radio.multisim.config=dsds
+ro.telephony.ril_class=X2RIL
 
 # Time services
 persist.timed.enable=true
