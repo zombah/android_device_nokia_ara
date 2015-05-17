@@ -29,7 +29,10 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libqcomvisualizer \
-    libqcomvoiceprocessing
+    libqcomvoiceprocessing \
+    tinycap \
+    tinymix \
+    tinyplay
 
 # Camera
 PRODUCT_PACKAGES += \
