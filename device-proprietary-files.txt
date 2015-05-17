@@ -311,6 +311,10 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libtzplayready.so
 
+# FM radio
+bin/fm_qsoc_patches
+bin/fmconfig
+
 # GPS
 -app/com.qualcomm.location.apk
 -app/com.qualcomm.services.location.apk
