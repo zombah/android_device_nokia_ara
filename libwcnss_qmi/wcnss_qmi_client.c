@@ -21,40 +21,47 @@
 #define SUCCESS 0
 #define FAILED -1
 
-#define MAC_INFO_FILE "/persist/wifimac.dat"
+#define MAC_INFO_FILE "/persist/.wlan_nv.bin"
 
 #include <cutils/log.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 
 int wcnss_init_qmi(void)
 {
     /* empty */
+    ALOGI("Start %s", __func__);
     return SUCCESS;
 }
 
-int wcnss_qmi_get_wlan_address(unsigned char *mac)
+int wcnss_qmi_get_wlan_address(unsigned char *pBdAddr)
 {
-    int i;
-    int wifi_addr[6];
-    FILE *f;
+	int fd1, fd2;
+	int i;
 
-    if ((f = fopen(MAC_INFO_FILE, "r")) == NULL) {
-        ALOGE("%s: failed to open %s", __func__, MAC_INFO_FILE);
-        return FAILED;
-    }
-
-    if (fscanf(f, "wifiaddr:0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X",
-            &wifi_addr[0], &wifi_addr[1], &wifi_addr[2],
-            &wifi_addr[3], &wifi_addr[4], &wifi_addr[5]) != 6) {
-        ALOGE("%s: %s: file contents are not valid", __func__, MAC_INFO_FILE);
-        fclose(f);
-        return FAILED;
-    } else {
-        for (i = 0; i < 6; i++) mac[i] = wifi_addr[i];
-    }
-
-    fclose(f);
-    return SUCCESS;
+	if ((fd1 = open(MAC_INFO_FILE, O_RDONLY)) == NULL) {
+                   ALOGE("%s: failed to open %s", __func__, MAC_INFO_FILE);
+                   return FAILED;
+           }
+        else {
+	for (i = 0; i < 6; i++) {
+		lseek(fd1,0x03+i,SEEK_SET);
+		lseek(fd2,0,SEEK_END);
+		read(fd1,&pBdAddr[i],1);
+	}
+  	ALOGI("Found MAC address: %02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx\n",
+            pBdAddr[0],
+            pBdAddr[1],
+            pBdAddr[2],
+            pBdAddr[3],
+            pBdAddr[4],
+            pBdAddr[5]);
+        }
+	close(fd1);
+	return SUCCESS;
 }
 
 void wcnss_qmi_deinit(void)
