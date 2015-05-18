@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
     memtrack.msm8610 \
     liboverlay
 
+# Doze
+PRODUCT_PACKAGES += \
+    DozeService
+
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
