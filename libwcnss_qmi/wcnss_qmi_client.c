@@ -42,7 +42,7 @@ int wcnss_qmi_get_wlan_address(unsigned char *pBdAddr)
 	int fd1, fd2;
 	int i;
 
-	if ((fd1 = open(MAC_INFO_FILE, O_RDONLY)) == NULL) {
+	if ((fd1 = open(MAC_INFO_FILE, O_RDONLY)) == -1) {
                    ALOGE("%s: failed to open %s", __func__, MAC_INFO_FILE);
                    return FAILED;
            }
