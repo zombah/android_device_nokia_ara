@@ -1,5 +1,8 @@
+// Overload this file in your device specific config if you need
+// to add extra camera parameters.
+// A typical file would look like this:
 /*
- * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +16,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 #define CAMERA_PARAMETERS_EXTRA_C \
-const char CameraParameters::KEY_SUPPORTED_ZTE_BURST_NUM[] = "zte-burst-num-values"; \
-const char CameraParameters::KEY_ZTE_BURST_NUM[] = "zte-burst-num"; \
-const char CameraParameters::KEY_SUPPORTED_ZTE_HDR_MODES[] = "zte-hdr-mode-values"; \
-const char CameraParameters::KEY_ZTE_HDR_MODE[] = "zte-hdr-mode"; \
-const char CameraParameters::ZTE_HDR_MODE_OFF[] = "Off"; \
-const char CameraParameters::ZTE_HDR_MODE_HDR[] = "HDR";
+const char CameraParameters::KEY_SUPPORTED_BURST_NUM[] = "supported-burst-num"; \
+const char CameraParameters::KEY_BURST_NUM[] = "burst-num"; \
+const char CameraParameters::KEY_SUPPORTED_HDR_MODES[] = "supported-hdr-modes"; \
+const char CameraParameters::KEY_HDR_MODE[] = "hdr-mode"; \
+const char CameraParameters::HDR_MODE_OFF[] = "hdr-mode-off"; \
+const char CameraParameters::HDR_MODE_HDR[] = "hdr-mode-hdr";
 
 #define CAMERA_PARAMETERS_EXTRA_H \
-    static const char KEY_SUPPORTED_ZTE_BURST_NUM[]; \
-    static const char KEY_ZTE_BURST_NUM[]; \
-    static const char KEY_SUPPORTED_ZTE_HDR_MODES[]; \
-    static const char KEY_ZTE_HDR_MODE[]; \
-    static const char ZTE_HDR_MODE_OFF[]; \
-    static const char ZTE_HDR_MODE_HDR[];
+    static const char KEY_SUPPORTED_BURST_NUM[]; \
+    static const char KEY_BURST_NUM[]; \
+    static const char KEY_SUPPORTED_HDR_MODES[]; \
+    static const char KEY_HDR_MODE[]; \
+    static const char HDR_MODE_OFF[]; \
+    static const char HDR_MODE_HDR[];
+*/
