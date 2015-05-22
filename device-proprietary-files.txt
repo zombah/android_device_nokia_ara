@@ -51,8 +51,6 @@ vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
-vendor/lib/libaudioalsa.so
-vendor/lib/libalsautils.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcvirt.so
 
@@ -61,12 +59,14 @@ bin/btnvtool
 bin/hci_qcomm_init
 
 # Camera
+bin/mm-qcamera-app
 bin/mm-qcamera-daemon
 lib/hw/camera.vendor.msm8610.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so
 lib/libqomx_core.so
+lib/libcdcc.so
 vendor/lib/libchromatix_imx134_common.so
 vendor/lib/libchromatix_imx134_default_video.so
 vendor/lib/libchromatix_imx134_hfr_120.so
@@ -286,6 +286,7 @@ vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
+vendor/lib/libNIPS_NokiaIPA.so
 
 # Camera Firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -434,7 +435,7 @@ etc/firmware/isdbt_zico.inp
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
-# MMI? 
+# MMI test framework 
 vendor/lib/libmmi.so
 vendor/lib/mmi_camera.so
 vendor/lib/mmi_led.so
@@ -477,7 +478,6 @@ vendor/lib/libcneutils.so
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
 vendor/lib/libconfigdb.so
-vendor/lib/libNIPS_NokiaIPA.so
 vendor/lib/libwifiscanner.so
 vendor/lib/libdnshostprio.so
 vendor/lib/libCommandSvc.so
