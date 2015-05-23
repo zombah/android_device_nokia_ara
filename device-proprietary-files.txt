@@ -318,44 +318,14 @@ bin/fmconfig
 
 # GPS
 -app/com.qualcomm.location.apk
--app/com.qualcomm.services.location.apk
-bin/garden_app
-bin/gpsone_daemon
-bin/location-mq
-bin/lowi-server
-bin/quipc_igsn
-bin/quipc_main
-bin/xtwifi-inet-agent
-bin/xtwifi-client
-etc/lowi.conf
-etc/cacert_location.pem
-etc/msap.conf
-etc/izat.conf
-etc/quipc.conf
-etc/sap.conf
-etc/xtwifi.conf
-etc/xtra_root_cert.pem
-etc/permissions/com.qualcomm.location.vzw_library.xml
-etc/permissions/com.qualcomm.location.xml
--framework/com.qualcomm.location.vzw_library.jar
-lib/libloc_api_v02.so
-lib/libloc_ds_api.so
-lib/libloc_xtra.so
-vendor/lib/libalarmservice_jni.so
-vendor/lib/libgeofence.so
-vendor/lib/libizat_core.so
-vendor/lib/liblbs_core.so
-vendor/lib/libloc_ext.so
-vendor/lib/liblocationservice.so
-vendor/lib/liblowi_client.so
-vendor/lib/libmsapm_jni.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libquipc_ulp_adapter.so
-vendor/lib/libulp2.so
-vendor/lib/libxtadapter.so
-vendor/lib/libxtwifi_zpp_adaptor.so
-vendor/lib/libxtwifi_ulp_adaptor.so
-vendor/lib/libxt_native.so
+system/lib/libloc_api_v02.so
+system/lib/libloc_ds_api.so
+system/vendor/lib/libgeofence.so
+system/vendor/lib/libizat_core.so
+system/vendor/lib/liblbs_core.so
+system/vendor/lib/liblocationservice.so
+system/vendor/lib/libquipc_os_api.so
+system/vendor/lib/libulp2.so
 
 # Nemod Sim security
 bin/nemod
