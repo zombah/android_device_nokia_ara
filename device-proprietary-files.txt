@@ -318,14 +318,14 @@ bin/fmconfig
 
 # GPS
 -app/com.qualcomm.location.apk
-system/lib/libloc_api_v02.so
-system/lib/libloc_ds_api.so
-system/vendor/lib/libgeofence.so
-system/vendor/lib/libizat_core.so
-system/vendor/lib/liblbs_core.so
-system/vendor/lib/liblocationservice.so
-system/vendor/lib/libquipc_os_api.so
-system/vendor/lib/libulp2.so
+lib/libloc_api_v02.so
+lib/libloc_ds_api.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
+vendor/lib/libquipc_os_api.so
+vendor/lib/libulp2.so
 
 # Nemod Sim security
 bin/nemod
