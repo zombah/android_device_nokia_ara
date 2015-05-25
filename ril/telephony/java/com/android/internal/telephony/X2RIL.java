@@ -28,6 +28,35 @@ public class X2RIL extends RIL implements CommandsInterface {
 		super(context, networkMode, cdmaSubscription, instanceId);
 	}
 
+
+   static final int RIL_REQUEST_SET_UICC_SUBSCRIPTION_X2 = 114;
+   static final int RIL_REQUEST_SET_DATA_SUBSCRIPTION_X2 = 115;
+
+    @Override
+    public void setUiccSubscription(int slotId, int appIndex, int subId,
+            int subStatus, Message result) {
+        //Note: This RIL request is also valid for SIM and RUIM (ICC card)
+        RILRequest rr = RILRequest.obtain(RIL_REQUEST_SET_UICC_SUBSCRIPTION_X2, result);
+
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest)
+                + " slot: " + slotId + " appIndex: " + appIndex
+                + " subId: " + subId + " subStatus: " + subStatus);
+
+        rr.mParcel.writeInt(slotId);
+        rr.mParcel.writeInt(appIndex);
+        rr.mParcel.writeInt(subId);
+        rr.mParcel.writeInt(subStatus);
+
+        send(rr);
+    }
+
+    @Override
+    public void setDataSubscription(Message result) {
+        RILRequest rr = RILRequest.obtain(RIL_REQUEST_SET_DATA_SUBSCRIPTION_X2, result);
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+        send(rr);
+    }
+
     @Override
     protected void
     processUnsolicited (Parcel p) {
@@ -36,7 +65,7 @@ public class X2RIL extends RIL implements CommandsInterface {
         int response = p.readInt();
 
         switch(response) {
-            case 1041: ret = responseVoid(p); break; // ?
+            case 1041: ret =  responseInts(p); break; // RIL_UNSOL_UICC_SUBSCRIPTION_STATUS_CHANGED
 
             default:
                 // Rewind the Parcel
@@ -48,23 +77,17 @@ public class X2RIL extends RIL implements CommandsInterface {
         }
 
         switch(response) {
-            case 1041:
+            case 1041: { // RIL_UNSOL_UICC_SUBSCRIPTION_STATUS_CHANGED
+                if (RILJ_LOGD) unsljLogRet(response, ret);
+            
+                if (mSubscriptionStatusRegistrants != null) {
+                    mSubscriptionStatusRegistrants.notifyRegistrants(
+                                        new AsyncResult (null, ret, null));
+                }
                 break;
+	    }
         }
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
