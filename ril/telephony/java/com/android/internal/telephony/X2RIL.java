@@ -50,12 +50,12 @@ public class X2RIL extends RIL implements CommandsInterface {
         send(rr);
     }
 
-    @Override
-    public void setDataSubscription(Message result) {
-        RILRequest rr = RILRequest.obtain(RIL_REQUEST_SET_DATA_SUBSCRIPTION_X2, result);
-        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
-        send(rr);
-    }
+//    @Override
+//    public void setDataSubscription(Message result) {
+//        RILRequest rr = RILRequest.obtain(RIL_REQUEST_SET_DATA_SUBSCRIPTION_X2, result);
+//        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+//        send(rr);
+//    }
 
     @Override
     protected void
