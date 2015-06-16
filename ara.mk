@@ -50,6 +50,10 @@ PRODUCT_PACKAGES += \
     regdbdump \
     regulatory.bin
 
+# CmUpdater
+PRODUCT_PROPERTY_OVERRIDES += \
+    cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8610 \
@@ -116,6 +120,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     qrngd \
     qrngp
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
 
 # Wifi
 PRODUCT_PACKAGES += \
