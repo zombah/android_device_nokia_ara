@@ -39,13 +39,13 @@ vendor/lib/rfsa/adsp/libadsp_denoise_skel.so
 vendor/lib/rfsa/adsp/libadsp_jpege_skel.so
 
 # Audio
-etc/Bluetooth_cal.acdb
-etc/General_cal.acdb
-etc/Global_cal.acdb
-etc/Handset_cal.acdb
-etc/Hdmi_cal.acdb
-etc/Headset_cal.acdb
-etc/Speaker_cal.acdb
+etc/ACDB/Bluetooth_cal.acdb
+etc/ACDB/General_cal.acdb
+etc/ACDB/Global_cal.acdb
+etc/ACDB/Handset_cal.acdb
+etc/ACDB/Hdmi_cal.acdb
+etc/ACDB/Headset_cal.acdb
+etc/ACDB/Speaker_cal.acdb
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
