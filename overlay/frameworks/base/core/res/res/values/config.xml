@@ -230,6 +230,9 @@
          config to 15. -->
     <integer name="config_deviceHardwareKeys">3</integer>
 
+    <!-- Device supports LED flashlight -->
+    <bool name="config_enableTorch">true</bool>
+
     <!-- Defines the system property to set for performance profile xe: sys.cpu.modes. Leave it
          blank if the device do not support performance profiles -->
     <string name="config_perf_profile_prop" translatable="false">sys.perf.profile</string>
