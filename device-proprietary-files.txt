@@ -386,6 +386,7 @@ vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_csvt_srvc.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
+vendor/lib/libxml.so
 
 # RIL
 -app/qcrilmsgtunnel.apk
