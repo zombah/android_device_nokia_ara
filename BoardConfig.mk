@@ -134,7 +134,7 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 BOARD_HAS_JANKY_BACKBUFFER := true
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/nokia/ara/ril/
+#BOARD_RIL_CLASS := ../../../device/nokia/ara/ril/
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
