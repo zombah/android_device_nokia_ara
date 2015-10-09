@@ -39,6 +39,10 @@ PRODUCT_PACKAGES += \
     tinymix \
     tinyplay
 
+# BoringSSL hacks
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8610
