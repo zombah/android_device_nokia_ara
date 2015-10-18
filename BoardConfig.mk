@@ -136,6 +136,11 @@ BOARD_HAS_JANKY_BACKBUFFER := true
 # RIL
 #BOARD_RIL_CLASS := ../../../device/nokia/ara/ril/
 
+# RIL
+TARGET_RIL_VARIANT := caf
+COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
+COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/nokia/ara/sepolicy

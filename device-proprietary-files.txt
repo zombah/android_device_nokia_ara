@@ -389,14 +389,12 @@ vendor/lib/libxml.so
 bin/netmgrd
 bin/radish
 bin/rfs_access
-bin/rild
 bin/rmt_storage
 bin/qmuxd
 etc/permissions/qcrilhook.xml
 etc/permissions/qcnvitems.xml
 -framework/qcrilhook.jar
 -framework/qcnvitems.jar
-lib/libril.so
 vendor/lib/libnetmgr.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
