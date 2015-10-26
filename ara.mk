@@ -28,7 +28,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
+    libaudioutils \
+    libaudioparameter \
     libqcomvisualizer \
+    libqcompostprocbundle \
     libqcomvoiceprocessing \
     tinycap \
     tinymix \
