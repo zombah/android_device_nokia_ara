@@ -332,16 +332,11 @@ vendor/lib/libtzplayready.so
 bin/fm_qsoc_patches
 
 # GPS
--app/com.qualcomm.location.apk
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/liblocationservice.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libulp2.so
-vendor/lib/libwifiscanner.so
 
 # Nemod Sim security
 bin/nemod
