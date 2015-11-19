@@ -39,10 +39,6 @@ PRODUCT_PACKAGES += \
     tinymix \
     tinyplay
 
-# BoringSSL hacks
-PRODUCT_PACKAGES += \
-    libboringssl-compat
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8610
@@ -54,6 +50,10 @@ PRODUCT_PACKAGES += \
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
+
+# Compatibility
+PRODUCT_PACKAGES += \
+    libboringssl-compat
 
 # Display
 PRODUCT_PACKAGES += \
