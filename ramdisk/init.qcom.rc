@@ -232,6 +232,10 @@ on post-fs-data
     # Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
+    #Color calibration file permission
+    chown system system /sys/devices/virtual/graphics/fb0/kcal
+    chmod 0660 /sys/devices/virtual/graphics/fb0/kcal
+
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
