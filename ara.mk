@@ -97,18 +97,11 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libdashplayer \
-    libmm-omxcore \
     libextmedia_jni \
     libOmxCore \
     libOmxVdec \
     libOmxVenc \
-    libqcmediaplayer \
-    libstagefrighthw \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
