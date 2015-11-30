@@ -349,14 +349,6 @@ vendor/firmware/keymaster/keymaster.mdt
 bin/nemod
 -framework/nemosrv.jar
 
-# OMX
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxIttiamVdec.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxWmaDec.so
-
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libdiag.so
