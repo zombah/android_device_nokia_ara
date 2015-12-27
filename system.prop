@@ -45,7 +45,7 @@ vidc.debug.level=1
 
 # Memory
 ro.config.low_ram=false
-ro.ksm.default=1
+ro.ksm.default=0
 
 # Qualcomm
 ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
