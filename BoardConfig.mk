@@ -75,9 +75,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 # FM radio
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
-# Dalvik
-TARGET_ARCH_LOWMEM := true
-
 # Graphics
 TARGET_QCOM_DISPLAY_VARIANT := caf-new
 BOARD_EGL_CFG := device/nokia/ara/prebuilt/system/lib/egl/egl.cfg

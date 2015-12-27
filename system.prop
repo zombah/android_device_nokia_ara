@@ -44,7 +44,7 @@ mm.enable.qcom_parser=37491
 vidc.debug.level=1
 
 # Memory
-ro.config.low_ram=true
+ro.config.low_ram=false
 ro.ksm.default=1
 
 # Qualcomm
