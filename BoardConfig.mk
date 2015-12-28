@@ -76,7 +76,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Graphics
-BOARD_EGL_CFG := device/nokia/ara/prebuilt/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
