@@ -43,13 +43,6 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images
 
-# Crda
-PRODUCT_PACKAGES += \
-    crda \
-    linville.key.pub.pem \
-    regdbdump \
-    regulatory.bin
-
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
