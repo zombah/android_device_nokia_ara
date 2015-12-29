@@ -50,6 +50,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
 
+# Compatibility
+PRODUCT_PACKAGES += \
+    libshim_qc-opt
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8610 \
