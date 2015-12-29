@@ -62,17 +62,6 @@ bin/hci_qcomm_init
 # Camera
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-bin/mm-jpeg-dec-test
-bin/mm-jpeg-enc-test
-bin/mm-jpeg-enc-test-client
-bin/mm-qjpeg-dec-test
-bin/mm-qjpeg-enc-test
-bin/mm-qomx-idec-test
-bin/mm-qomx-ienc-test
-bin/mm-vdec-omx-test
-bin/mm-venc-omx-test720p
-bin/mm-video-driver-test
-bin/mm-video-encdrv-test
 etc/camera/dcc/0107A302.dcc
 etc/camera/dcc/0107A303.dcc
 etc/camera/dcc/010B8B01.dcc
