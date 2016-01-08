@@ -25,7 +25,6 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.msm8610 \
     audio.primary.msm8610 \
     audio.a2dp.default \
     audio.r_submix.default \
