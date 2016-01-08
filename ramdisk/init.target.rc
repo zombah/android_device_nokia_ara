@@ -51,10 +51,10 @@ on post-fs-data
     mkdir /tombstones/modem 0771 system system
 
 on boot
-   write /proc/sys/vm/page-cluster 0
-   write /proc/sys/vm/swappiness 100
-   # Enable writing to brightness node under torch-light from userspace
-   chown system system /sys/class/leds/torch-light/brightness
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
+    # Enable writing to brightness node under torch-light from userspace
+    chown system system /sys/class/leds/torch-light/brightness
 
 # Allow usb charging to be disabled persistently
 on property:persist.usb.chgdisabled=1
@@ -64,35 +64,35 @@ on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
 service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
 
 service mpdecision /system/bin/mpdecision --avg_comp
-   user root
-   disabled
+    user root
+    disabled
 
 #start GNSS/Sensor interface daemon
 service gsiff_daemon /system/bin/gsiff_daemon
-   class late_start
-   user system
-   group gps net_raw
+    class late_start
+    user system
+    group gps net_raw
 
 service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
+    class main
+    user root
+    group root
 
 service qseecomd /system/bin/qseecomd
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
 
 #start security and simlock daemon
 service nemod /system/bin/nemod
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
 
 on property:device.card_valid=0
     start simlock_notify
@@ -113,18 +113,18 @@ on property:device.card_validation=other
     start simlock_notify
 
 service simlock_notify /system/bin/sh /system/etc/simlock.sh
-   oneshot
+    oneshot
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
-   class late_start
-   user camera
-   group camera system inet input graphics
+    class late_start
+    user camera
+    group camera system inet input graphics
 
 service adsprpcd /system/bin/adsprpcd
-   class main
-   user media
-   group media
+    class main
+    user media
+    group media
 
 service wcnss-service /system/bin/wcnss_service
     class main
