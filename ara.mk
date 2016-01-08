@@ -112,11 +112,6 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 PRODUCT_PACKAGES += \
     power.msm8610
 
-# Random
-PRODUCT_PACKAGES += \
-    qrngd \
-    qrngp
-
 # Torch
 PRODUCT_PACKAGES += \
     Torch
