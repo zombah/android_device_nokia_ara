@@ -142,8 +142,21 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     file.te \
-    netd.te \
-    ueventd.te
+    file_contexts \
+    genfs_contexts \
+    init_shell.te \
+    kernel.te \
+    location.te \
+    mediaserver.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    platform_app.te \
+    property.te \
+    property_contexts \
+    rmt_storage.te \
+    system_server.te \
+    thermal-engine.te \
+    wcnss_service.te
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
