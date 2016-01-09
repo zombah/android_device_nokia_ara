@@ -137,6 +137,7 @@ BOARD_HAS_JANKY_BACKBUFFER := true
 #BOARD_RIL_CLASS := ../../../device/nokia/ara/ril/
 
 # SELinux
+include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     device/nokia/ara/sepolicy
 
