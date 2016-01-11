@@ -420,10 +420,4 @@ etc/firmware/isdbt_zico.inp
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
-# CNE
-vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
-vendor/lib/libcneqmiutils.so
-vendor/lib/libcneutils.so
-
 # Unsorted
