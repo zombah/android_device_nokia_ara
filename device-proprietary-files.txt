@@ -460,6 +460,3 @@ vendor/lib/libcneqmiutils.so
 vendor/lib/libcneutils.so
 
 # Unsorted
-vendor/lib/libsurround_proc.so
-vendor/lib/libv8.so
-vendor/lib/libmm-hdcpmgr.so
