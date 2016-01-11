@@ -352,11 +352,6 @@ vendor/firmware/keymaster/keymaster.mdt
 bin/nemod
 -framework/nemosrv.jar
 
-# Postprocessing
-vendor/lib/libdisp-aba.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libcsd-client.so
