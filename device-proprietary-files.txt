@@ -58,6 +58,7 @@ vendor/lib/soundfx/libqcvirt.so
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
+vendor/lib/libbt-vendor.so
 
 # Camera
 bin/mm-qcamera-app
@@ -462,4 +463,3 @@ vendor/lib/libcneutils.so
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libbt-vendor.so
