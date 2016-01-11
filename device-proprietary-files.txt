@@ -240,6 +240,8 @@ vendor/lib/libchromatix_smiapp0c563a03_productiontest.so
 vendor/lib/libchromatix_smiapp0c563a03_snapshot.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
+vendor/lib/libimage-omx-common.so
+vendor/lib/libimage-jpeg-enc-omx-comp.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_iface_modules.so
@@ -337,6 +339,7 @@ vendor/lib/liblbs_core.so
 vendor/lib/liblocationservice.so
 vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
+vendor/lib/libwifiscanner.so
 
 # Keymaster firmware
 vendor/firmware/keymaster/keymaster.b00
@@ -351,6 +354,7 @@ bin/nemod
 
 # Qualcomm framework
 bin/irsc_util
+vendor/lib/libcsd-client.so
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsucsd.so
@@ -369,6 +373,8 @@ vendor/lib/libqmi_csvt_srvc.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
+vendor/lib/libSubSystemShutdown.so
+vendor/lib/libsubsystem_control.so
 
 # RIL
 -app/qcrilmsgtunnel.apk
@@ -453,22 +459,10 @@ vendor/lib/libcneutils.so
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
-vendor/lib/libwifiscanner.so
-vendor/lib/libdnshostprio.so
 vendor/lib/libCommandSvc.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libcsd-client.so
 vendor/lib/libbt-vendor.so
-vendor/lib/libSubSystemShutdown.so
-vendor/lib/libsubsystem_control.so
-vendor/lib/libmmhttpstack.so
-vendor/lib/libimage-omx-common.so
-vendor/lib/libswdec_2dto3d.so
-vendor/lib/spl_proc_plugin.so
 vendor/lib/libdisp-aba.so
 vendor/lib/libmm-abl.so
 vendor/lib/libmm-abl-oem.so
-vendor/lib/pp_proc_plugin.so
 vendor/lib/libmmstillomx.so
-vendor/lib/libmmrtpdecoder.so
-vendor/lib/libimage-jpeg-enc-omx-comp.so
