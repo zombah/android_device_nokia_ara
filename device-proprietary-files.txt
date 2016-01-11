@@ -389,6 +389,7 @@ etc/permissions/qcnvitems.xml
 -framework/qcrilhook.jar
 -framework/qcnvitems.jar
 lib/libmdmdetect.so
+vendor/lib/libCommandSvc.so
 vendor/lib/libconfigdb.so
 vendor/lib/libnetmgr.so
 vendor/lib/libperipheral_client.so
@@ -459,7 +460,6 @@ vendor/lib/libcneutils.so
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
-vendor/lib/libCommandSvc.so
 vendor/lib/libmm-hdcpmgr.so
 vendor/lib/libbt-vendor.so
 vendor/lib/libmmstillomx.so
