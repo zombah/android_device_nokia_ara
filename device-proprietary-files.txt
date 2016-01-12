@@ -475,12 +475,6 @@ vendor/lib/libmmiipstreammmihttp.so
 vendor/lib/libmmipl.so
 vendor/lib/libmmrtpdecoder.so
 
-# CNE
-vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
-vendor/lib/libcneqmiutils.so
-vendor/lib/libcneutils.so
-
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
