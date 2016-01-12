@@ -55,7 +55,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libboringssl-compat \
     libshim_qc-opt \
-    libshim_rmt_storage
+    libshim_rmt_storage \
+    libshim_nokia_camera
 
 # Display
 PRODUCT_PACKAGES += \
