@@ -440,41 +440,6 @@ etc/firmware/isdbt_zico.inp
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
-# MMI test framework 
-vendor/lib/libmmi.so
-vendor/lib/mmi_camera.so
-vendor/lib/mmi_led.so
-vendor/lib/mmi_volume.so
-vendor/lib/mmi_msensor.so
-vendor/lib/mmi_audio.so
-vendor/lib/mmi_psensor.so
-vendor/lib/mmi_fm.so
-vendor/lib/mmi_vibrator.so
-vendor/lib/mmi_touch.so
-vendor/lib/mmi_keypadbacklight.so
-vendor/lib/mmi_flashlight.so
-vendor/lib/mmi_wifi.so
-vendor/lib/mmi_sdcard.so
-vendor/lib/mmi_bt.so
-vendor/lib/mmi_gsensor.so
-vendor/lib/mmi_sim.so
-vendor/lib/mmi_lsensor.so
-vendor/lib/mmi_touchpanel.so
-vendor/lib/mmi_lcd.so
-vendor/lib/mmi_gps_garden.so
-vendor/lib/mmi_gyroscope.so
-vendor/lib/mmi_battery.so
-vendor/lib/libmmQTA.so
-vendor/lib/libmmQSM.so
-vendor/lib/libmmhttpstack.so
-vendor/lib/libmmipstreamaal.so
-vendor/lib/libmmipstreamsourcehttp.so
-vendor/lib/libmmipstreamnetwork.so
-vendor/lib/libmmipstreamutils.so
-vendor/lib/libmmiipstreammmihttp.so
-vendor/lib/libmmipl.so
-vendor/lib/libmmrtpdecoder.so
-
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
