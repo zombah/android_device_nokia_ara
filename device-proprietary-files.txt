@@ -433,9 +433,3 @@ vendor/lib/libtime_genoff.so
 etc/firmware/isdbt_zico.inp
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
-
-# Unsorted
-vendor/lib/libsurround_proc.so
-vendor/lib/libv8.so
-vendor/lib/libmm-hdcpmgr.so
-
