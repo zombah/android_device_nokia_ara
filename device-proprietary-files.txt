@@ -365,11 +365,6 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libswdec_2dto3d.so
 
-# Postprocessing
-vendor/lib/libdisp-aba.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libconfigdb.so
