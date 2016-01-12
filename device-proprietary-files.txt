@@ -57,6 +57,7 @@ vendor/lib/soundfx/libqcvirt.so
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
+vendor/lib/libbt-vendor.so
 
 # Camera
 bin/mm-qcamera-app
@@ -250,6 +251,8 @@ vendor/lib/libchromatix_smiapp0c563a03_productiontest.so
 vendor/lib/libchromatix_smiapp0c563a03_snapshot.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
+vendor/lib/libimage-jpeg-enc-omx-comp.so
+vendor/lib/libimage-omx-common.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_iface_modules.so
@@ -305,6 +308,7 @@ vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
+vendor/lib/libmmstillomx.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
@@ -344,6 +348,7 @@ vendor/lib/liblbs_core.so
 vendor/lib/liblocationservice.so
 vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
+vendor/lib/libwifiscanner.so
 
 # Nemod Sim security
 bin/nemod
@@ -361,9 +366,17 @@ vendor/lib/libOmxIttiamVdec.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libSHIMDivxDrm.so
+vendor/lib/libswdec_2dto3d.so
+
+# Postprocessing
+vendor/lib/libdisp-aba.so
+vendor/lib/libmm-abl.so
+vendor/lib/libmm-abl-oem.so
 
 # Qualcomm framework
 bin/irsc_util
+vendor/lib/libconfigdb.so
+vendor/lib/libcsd-client.so
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsnetutils.so
@@ -382,6 +395,8 @@ vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_csvt_srvc.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
+vendor/lib/libSubSystemShutdown.so
+vendor/lib/libsubsystem_control.so
 vendor/lib/libxml.so
 
 # RIL
@@ -397,6 +412,7 @@ etc/permissions/qcnvitems.xml
 -framework/qcrilhook.jar
 -framework/qcnvitems.jar
 lib/libril.so
+vendor/lib/libCommandSvc.so
 vendor/lib/libnetmgr.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
@@ -450,12 +466,14 @@ vendor/lib/mmi_gyroscope.so
 vendor/lib/mmi_battery.so
 vendor/lib/libmmQTA.so
 vendor/lib/libmmQSM.so
+vendor/lib/libmmhttpstack.so
 vendor/lib/libmmipstreamaal.so
 vendor/lib/libmmipstreamsourcehttp.so
 vendor/lib/libmmipstreamnetwork.so
 vendor/lib/libmmipstreamutils.so
 vendor/lib/libmmiipstreammmihttp.so
 vendor/lib/libmmipl.so
+vendor/lib/libmmrtpdecoder.so
 
 # CNE
 vendor/lib/libcneapiclient.so
@@ -463,26 +481,13 @@ vendor/lib/libcneconn.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libcneutils.so
 
+# Chromium
+vendor/lib/libdnshostprio.so
+vendor/lib/pp_proc_plugin.so
+vendor/lib/spl_proc_plugin.so
+
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
-vendor/lib/libconfigdb.so
-vendor/lib/libwifiscanner.so
-vendor/lib/libdnshostprio.so
-vendor/lib/libCommandSvc.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libcsd-client.so
-vendor/lib/libbt-vendor.so
-vendor/lib/libSubSystemShutdown.so
-vendor/lib/libsubsystem_control.so
-vendor/lib/libmmhttpstack.so
-vendor/lib/libimage-omx-common.so
-vendor/lib/libswdec_2dto3d.so
-vendor/lib/spl_proc_plugin.so
-vendor/lib/libdisp-aba.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-vendor/lib/pp_proc_plugin.so
-vendor/lib/libmmstillomx.so
-vendor/lib/libmmrtpdecoder.so
-vendor/lib/libimage-jpeg-enc-omx-comp.so
+
