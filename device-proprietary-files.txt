@@ -475,11 +475,6 @@ vendor/lib/libcneconn.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libcneutils.so
 
-# Chromium
-vendor/lib/libdnshostprio.so
-vendor/lib/pp_proc_plugin.so
-vendor/lib/spl_proc_plugin.so
-
 # Unsorted
 vendor/lib/libsurround_proc.so
 vendor/lib/libv8.so
