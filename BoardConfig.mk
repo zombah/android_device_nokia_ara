@@ -39,7 +39,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/nokia/ara/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/nokia/msm8610
 #TARGET_KERNEL_CONFIG := msm8610-nokia_debug_defconfig
 TARGET_KERNEL_CONFIG := msm8610-nokia_defconfig
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 #BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 no_console_suspend=1 ignore_loglevel earlyprintk initcall_debug
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
