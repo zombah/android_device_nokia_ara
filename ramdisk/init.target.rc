@@ -94,7 +94,7 @@ service qseecomd /system/bin/qseecomd
    group root
 
 #start security and simlock daemon
-service nemod /system/bin/nemod
+service /system/xbin/strace -ttf -o/data/nemod.strace nemod /system/bin/nemod
    class late_start
    user root
    group root
