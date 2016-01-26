@@ -328,9 +328,6 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libtzplayready.so
 
-# FM radio
-bin/fm_qsoc_patches
-
 # GPS
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
