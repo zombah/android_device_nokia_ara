@@ -340,13 +340,6 @@ vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
 vendor/lib/libwifiscanner.so
 
-# Keymaster firmware
-vendor/firmware/keymaster/keymaster.b00
-vendor/firmware/keymaster/keymaster.b01
-vendor/firmware/keymaster/keymaster.b02
-vendor/firmware/keymaster/keymaster.b03
-vendor/firmware/keymaster/keymaster.mdt
-
 # Nemod Sim security
 bin/nemod
 -framework/nemosrv.jar

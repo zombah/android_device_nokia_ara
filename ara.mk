@@ -80,8 +80,8 @@ PRODUCT_PACKAGES += \
     gps.msm8610
 
 # Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8610
+#PRODUCT_PACKAGES += \
+#    keystore.msm8610
 
 # Lights
 PRODUCT_PACKAGES += \
