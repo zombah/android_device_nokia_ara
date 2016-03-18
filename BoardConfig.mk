@@ -150,6 +150,7 @@ BOARD_SEPOLICY_UNION += \
     mediaserver.te \
     mm-qcamerad.te \
     mpdecision.te \
+    platform_app.te \
     property.te \
     property_contexts \
     rmt_storage.te \
