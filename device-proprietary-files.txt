@@ -386,7 +386,6 @@ vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
 
 # Sensors
-lib/hw/sensors.msm8610.so
 vendor/lib/hw/power.qcom.so
 
 # Thermal
