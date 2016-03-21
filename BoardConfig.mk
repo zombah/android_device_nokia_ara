@@ -87,6 +87,10 @@ BOARD_HARDWARE_CLASS := device/nokia/ara/cmhw/
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Sensors
+SOMC_CFG_SENSORS := true
+SOMC_CFG_SENSORS_ACCEL_BMA250_INPUT := yes
+
 # Memory
 MALLOC_IMPL := dlmalloc
 
