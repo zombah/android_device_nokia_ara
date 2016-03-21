@@ -120,7 +120,7 @@ service simlock_notify /system/bin/sh /system/etc/simlock.sh
     oneshot
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/xbin/strace -ttf -o/data/camera.strace /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
