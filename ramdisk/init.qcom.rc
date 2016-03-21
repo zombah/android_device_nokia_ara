@@ -461,11 +461,12 @@ service lowi-server /system/bin/lowi-server
     group gps net_admin wifi inet qcom_diag
     disabled
 
-on property:hw.fm.init=1
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
-
-on property:hw.fm.init=0
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
+service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+    class late_start
+    user system
+    group system
+    disabled
+    oneshot
 
 service qcom-sh /system/bin/sh /init.qcom.sh
     class late_start
