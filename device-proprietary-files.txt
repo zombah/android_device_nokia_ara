@@ -359,13 +359,11 @@ vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_csvt_srvc.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
-vendor/lib/libsmemlog.so
 vendor/lib/libSubSystemShutdown.so
 vendor/lib/libsubsystem_control.so
 
 # RIL
 -app/qcrilmsgtunnel.apk
--app/shutdownlistener.apk
 bin/netmgrd
 bin/radish
 bin/rfs_access
@@ -375,14 +373,11 @@ etc/permissions/qcrilhook.xml
 etc/permissions/qcnvitems.xml
 -framework/qcrilhook.jar
 -framework/qcnvitems.jar
-lib/libmdmdetect.so
 vendor/lib/libCommandSvc.so
 vendor/lib/libconfigdb.so
 vendor/lib/libnetmgr.so
-vendor/lib/libperipheral_client.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
-vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
 
 # Sensors
