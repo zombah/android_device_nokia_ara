@@ -102,6 +102,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 734003200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2457845248
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Disable spase in image creation, otherwise image not mountble and need to be processed with simg2img
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
