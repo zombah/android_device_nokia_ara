@@ -83,6 +83,9 @@ ro.telephony.call_ring.multiple=false
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0
 
+# QCril debug
+persist.radio.adb_log_on=0
+
 # Time services
 persist.timed.enable=true
 
