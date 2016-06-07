@@ -1,0 +1,8 @@
+#!/system/bin/sh
+
+DATASIM=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "SELECT value FROM global where name='multi_sim_data_call'")
+if [[ $DATASIM != "1" && $DATASIM != "2" ]]
+then
+sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update global SET value='1' where name='multi_sim_data_call'"
+fi
+unset DATASIM

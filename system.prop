@@ -95,6 +95,10 @@ wifi.interface=wlan0
 
 # Dualsim
 persist.radio.multisim.config=dsds
+ro.telephony.ril.config=simactivation
+persist.radio.dont_use_dsd=true
+ro.ril.telephony.mqanelements=4
+persist.radio.oem_socket=false
 
 # Custom Java RIL
 #ro.telephony.ril_class=X2RIL
