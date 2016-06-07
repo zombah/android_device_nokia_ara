@@ -328,6 +328,10 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libtzplayready.so
 
+# FM radio
+bin/fm_qsoc_patches
+bin/fmconfig
+
 # GPS
 -app/com.qualcomm.location.apk
 lib/libloc_api_v02.so
