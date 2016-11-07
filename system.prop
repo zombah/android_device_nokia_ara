@@ -27,6 +27,10 @@ camera2.portability.force_api=1
 # Bluetooth
 qcom.bluetooth.soc=smd
 
+# Camera
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+
 # Display
 ro.sf.lcd_density=240
 ro.opengles.version=196608
