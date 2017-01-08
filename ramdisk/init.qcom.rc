@@ -148,6 +148,11 @@ on boot
     #display color calibration
     chown system system /sys/devices/virtual/graphics/fb0/kcal
 
+    #Sig motion sensor
+    chown system system /sys/class/sig_sensor/g_sensor/en_sig_motion
+    chmod 0660 /sys/class/sig_sensor/g_sensor/en_sig_motion
+
+
 # msm specific files that need to be created on /data
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
@@ -330,6 +335,11 @@ service qmuxd /system/bin/qmuxd
 service netmgrd /system/bin/netmgrd
     class main
     disabled
+
+service sensors /system/bin/sensors.qcom
+    class late_start
+    user root
+    group root radio system
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target

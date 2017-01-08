@@ -109,6 +109,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
+# Recovery
+PRODUCT_PACKAGES += \
+    sensors.msm8610 \
+    sensors.qcom
+
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
