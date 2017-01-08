@@ -16,9 +16,4 @@ PRODUCT_MODEL := ara
 PRODUCT_MANUFACTURER := Nokia
 PRODUCT_RELEASE_NAME := ara
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="msm8610-user 4.4.2 KOT49H eng.root.20140509.130110 release-keys" \
-    BUILD_FINGERPRINT="NOKIA/NOKIA-RM1013/NOKIA-RM1013:4.4.2/KOT49H/eng.root.20140509.130110:user/release-keys"
-
 PRODUCT_GMS_CLIENTID_BASE := android-nokia
