@@ -44,10 +44,6 @@ PRODUCT_PACKAGES += \
     camera.msm8610 \
     Snap
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
