@@ -28,8 +28,8 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
 TARGET_ARCH_VARIANT := armv7-a-neon
 
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+BOARD_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+BOARD_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 TARGET_SPECIFIC_HEADER_PATH += device/nokia/ara/include
 
@@ -64,7 +64,7 @@ USE_CLANG_PLATFORM_BUILD := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 USE_DEVICE_SPECIFIC_CAMERA_WRAPPER := true
-COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
+BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -135,8 +135,8 @@ BOARD_HAS_JANKY_BACKBUFFER := true
 
 # RIL
 TARGET_RIL_VARIANT := caf
-COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
-COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
+BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
+BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
