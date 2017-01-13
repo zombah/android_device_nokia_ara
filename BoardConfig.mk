@@ -89,7 +89,7 @@ BOARD_HARDWARE_CLASS := device/nokia/ara/cmhw/
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Memory
-MALLOC_IMPL := dlmalloc
+MALLOC_SVELTE := true
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
