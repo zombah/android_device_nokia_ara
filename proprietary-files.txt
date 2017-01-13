@@ -33,7 +33,6 @@ vendor/lib/soundfx/libqcvirt.so
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
-vendor/lib/libbt-vendor.so
 
 # Camera
 bin/mm-qcamera-app
