@@ -6,7 +6,6 @@ etc/firmware/a300_pfp.fw
 etc/firmware/a330_pm4.fw
 etc/firmware/a225_pm4.fw
 etc/firmware/a225p5_pm4.fw
-vendor/lib/libuiblur.so
 
 # ADSP
 bin/adsprpcd
