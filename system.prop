@@ -21,13 +21,11 @@ audio.offload.video=false
 av.streaming.offload.enable=false
 tunnel.audio.encode=false
 
-# Camera
-camera2.portability.force_api=1
-
 # Bluetooth
 qcom.bluetooth.soc=smd
 
 # Camera
+camera2.portability.force_api=1
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
 
