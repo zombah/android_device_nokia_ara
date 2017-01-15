@@ -66,6 +66,9 @@ ro.min_freq_0=787200
 # Scheduler
 sys.io.scheduler=bfq
 
+# SdcardFS
+ro.sys.sdcardfs=true
+
 # Storage
 ro.vold.primary_physical=true
 
