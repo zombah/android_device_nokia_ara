@@ -114,6 +114,14 @@ static char *camera_fixup_getparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, supportedSceneModes);
     }
 
+    params.remove(android::CameraParameters::KEY_QC_FACE_RECOGNITION);
+    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_RECOGNITION);
+    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_RECOGNITION_MODES);
+    params.remove(android::CameraParameters::KEY_QC_FACE_DETECTION);
+    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_DETECTION);
+    params.remove(android::CameraParameters::KEY_FACE_DETECTION);
+    params.remove(android::CameraParameters::KEY_SUPPORTED_FACE_DETECTION);
+
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
